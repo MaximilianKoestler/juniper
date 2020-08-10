@@ -299,6 +299,7 @@ where
             .map(|ct| (ct.top().as_str(), ct.sub().as_str()));
         let is_json = match content_type {
             Some(("application", "json")) => true,
+            Some(("text", "plain")) => true,
             Some(("application", "graphql")) => false,
             _ => return Box::pin(async move { Forward(data) }).await,
         };
