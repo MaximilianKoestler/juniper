@@ -329,7 +329,7 @@ impl<'r, 'o: 'r> Responder<'r, 'o> for GraphQLResponse {
         let GraphQLResponse(status, body) = self;
 
         Response::build()
-            .header(ContentType::new("application", "json"))
+            .header(ContentType::new("text", "css"))
             .status(status)
             .sized_body(body.len(), Cursor::new(body))
             .ok()
